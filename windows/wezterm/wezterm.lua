@@ -39,7 +39,7 @@ config.hide_mouse_cursor_when_typing = false
 config.window_padding = {
 	left = 1,
 	right = 1,
-	top = 22,
+	top = 19,
 	bottom = 0,
 }
 -- config.window_content_alignment = {

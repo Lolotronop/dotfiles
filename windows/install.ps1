@@ -109,6 +109,71 @@ function Link-Config {
     Write-Host "[LINK] $destinationPath -> $sourcePath" -ForegroundColor Green
 }
 
+function Get-FirefoxDefaultProfilePath {
+    $profilesIni = Join-Path $env:APPDATA 'Mozilla\Firefox\profiles.ini'
+    if (-not (Test-Path $profilesIni)) { return $null }
+
+    $sections = @{}
+    $current = $null
+
+    foreach ($line in Get-Content $profilesIni) {
+        if ($line -match '^\[(.+)\]$') {
+            $current = $matches[1]
+            $sections[$current] = @{}
+            continue
+        }
+
+        if ($current -and $line -match '^(.*?)=(.*)$') {
+            $sections[$current][$matches[1]] = $matches[2]
+        }
+    }
+
+    $chosenPath = $null
+
+    # First try Install* -> Default=... (often points to the real default-release profile)
+    $installSection = $sections.Keys | Where-Object { $_ -like 'Install*' } | Select-Object -First 1
+    if ($installSection -and $sections[$installSection].Default) {
+        $chosenPath = $sections[$installSection].Default
+    }
+    else {
+        # Fallback to the profile marked Default=1
+        $defaultProfile = $sections.Keys |
+            Where-Object { $_ -like 'Profile*' -and $sections[$_].Default -eq '1' } |
+            Select-Object -First 1
+
+        if ($defaultProfile) {
+            $chosenPath = $sections[$defaultProfile].Path
+            if ($sections[$defaultProfile].IsRelative -eq '1') {
+                $chosenPath = Join-Path (Split-Path $profilesIni) $chosenPath
+            }
+        }
+    }
+
+    if (-not $chosenPath) { return $null }
+
+    if ($chosenPath -notmatch '^[A-Za-z]:\\|^\\\\') {
+        $chosenPath = Join-Path (Split-Path $profilesIni) $chosenPath
+    }
+
+    if (Test-Path $chosenPath) {
+        return (Resolve-Path $chosenPath).Path
+    }
+
+    return $null
+}
+
+$firefoxProfilePath = Get-FirefoxDefaultProfilePath
+
+if ($firefoxProfilePath) {
+    Write-Host "Firefox profile found: $firefoxProfilePath" -ForegroundColor Green
+    Link-Config `
+        -Source "firefox" `
+        -Destination "$firefoxProfilePath\chrome"
+}
+else {
+    Write-Host "Firefox profile not found." -ForegroundColor Yellow
+}
+
 $Links = @(
     @{
         Source      = "wezterm\wezterm.lua"

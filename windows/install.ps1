@@ -186,6 +186,10 @@ $Links = @(
 
 
     @{
+        Source      = "filepilot\FPilot-Config.json"
+        Destination = "~\AppData\Roaming\Voidstar\FilePilot\FPilot-Config.json"
+    },
+    @{
         Source      = "config.nu"
         Destination = "~\AppData\Roaming\nushell\config.nu"
     },

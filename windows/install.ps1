@@ -207,6 +207,23 @@ $Links = @(
     },
 
     @{
+        Source      = "mpv\scripts"
+        Destination = "$ScoopLocation\persist\mpv\portable_config\scripts"
+    },
+    @{
+        Source      = "mpv\script-opts"
+        Destination = "$ScoopLocation\persist\mpv\portable_config\script-opts"
+    },
+    @{
+        Source      = "mpv\fonts"
+        Destination = "$ScoopLocation\persist\mpv\portable_config\fonts"
+    },
+    @{
+        Source      = "mpv\mpv.conf"
+        Destination = "$ScoopLocation\persist\mpv\portable_config\mpv.conf"
+    },
+
+    @{
         Source      = "sublime-text\Packages"
         Destination = "$ScoopLocation\persist\sublime-text\Data\Packages"
     },

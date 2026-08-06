@@ -1,0 +1,20 @@
+{
+	"ignored_packages":
+	[
+		// "Vintage",
+/*"Package Control",*/
+/*"0_package_control_loader",*/
+/*"Package Control",*/
+/*"Package Control",*/
+		"Package Control",
+	],
+	"theme": "Adaptive.sublime-theme",
+	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).sublime-color-scheme",
+	"vintage_start_in_command_mode": true,
+	// "font_face": "FiraCode Nerd Font",
+	"font_face": "IosevkaTerm NF",
+	"font_size": 13,
+	"font_options": ["dlig", "clig", "liga", "calt"],
+	"vintage_ctrl_keys": true,
+	"index_files": false,
+}

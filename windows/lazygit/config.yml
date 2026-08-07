@@ -1,7 +1,6 @@
 gui:
   language: en
 
-# git:
-#   pagers:
-#     - colorArg: always
-#       pager: D:\\soft\\scoop\\shims\\delta.exe --dark --paging=never -n
+git:
+  diffRenderers:
+    - command: delta --dark --paging=never

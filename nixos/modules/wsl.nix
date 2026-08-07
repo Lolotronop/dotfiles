@@ -52,6 +52,7 @@
       bat
       fish
       python3
+      tmux # TOOD: seriously consider if I need it
     ];
 
     system.stateVersion = "26.05";

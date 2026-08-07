@@ -1,17 +1,23 @@
 {inputs, self, ...}: {
   flake.nixosModules.base = {pkgs,...}: {
     environment.systemPackages = with pkgs; [
-      vim
-      neovim
       git
+      vim
+
+      fish
+      bat
+
+      neovim
       fd
       ripgrep
       tree-sitter
       gcc
+
       lazygit
       delta
-      bat
-      fish
+
+      btop
+      htop
 
       pi-coding-agent
 

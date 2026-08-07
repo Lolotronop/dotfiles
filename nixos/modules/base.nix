@@ -13,6 +13,8 @@
       bat
       fish
 
+      pi-coding-agent
+
       # TOOD: seriously consider if I need it
       # I have wezterm and maybe ghostty for this?
       tmux

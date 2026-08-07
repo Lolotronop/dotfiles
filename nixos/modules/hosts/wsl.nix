@@ -5,6 +5,7 @@
       inputs.nixos-wsl.nixosModules.default
 
       self.nixosModules.base
+      self.nixosModules.docker
 
       self.nixosModules.hostWsl
     ];

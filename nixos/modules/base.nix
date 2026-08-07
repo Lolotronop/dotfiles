@@ -1,5 +1,23 @@
 {inputs, self, ...}: {
   flake.nixosModules.base = {pkgs,...}: {
+    environment.systemPackages = with pkgs; [
+      vim
+      neovim
+      git
+      fd
+      ripgrep
+      tree-sitter
+      gcc
+      lazygit
+      delta
+      bat
+      fish
+
+      # TOOD: seriously consider if I need it
+      # I have wezterm and maybe ghostty for this?
+      tmux
+    ];
+
     programs.git = {
       enable = true;
       config = {
@@ -26,22 +44,10 @@
       };
     };
 
-    environment.systemPackages = with pkgs; [
-      vim
-      neovim
-      git
-      fd
-      ripgrep
-      tree-sitter
-      gcc
-      lazygit
-      delta
-      bat
-      fish
-
-      # TOOD: seriously consider if I need it
-      # I have wezterm and maybe ghostty for this?
-      tmux
-    ];
+    services.journald = {
+      extraConfig = ''
+      SystemMaxUse=512M
+      '';
+    };
   };
 }

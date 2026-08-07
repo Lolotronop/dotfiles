@@ -7,16 +7,16 @@ Neovim configuration is in a separate repo - [https://github.com/Lolotronop/nvim
 ## Installation
 
 ### NixOS
-1. run `install.sh` 
-2. do `sudo nixos-rebuild switch --flake ~/.config/nixos#HOST` with the right `HOST` name.
-You can find then in `~/.config/nixos/modules/hosts`, filenames match the hostnames.
-Currently I have only wsl in there
-3. profit!
+```sh
+./install.sh
+sudo nixos-rebuild switch --flake ~/.config/nixos#HOST` # change HOST to one of in nixos/modules/hosts/
+```
 
 ### Windows
-1. nagivate to `windows/`
-2. run `install.ps1`
-3. profit!
+```powershell
+cd windows/
+powershell.exe -File install.ps1
+```
 
 Caveat - FilePilot overrides it's config symlink on edit,
 so you will have to manually update it in the repo for the sync to work.

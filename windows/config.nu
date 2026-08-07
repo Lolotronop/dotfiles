@@ -902,5 +902,6 @@ $env.https_proxy = "http://127.0.0.1:10808"
 $env.no_proxy = "localhost,127.0.0.1"
 
 alias bash = D:/soft/scoop/apps/git/current/bin/bash.exe
+alias lg = lazygit.exe
 
 # use ~/.cache/starship/init.nu

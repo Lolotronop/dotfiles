@@ -7,6 +7,8 @@
     environment.systemPackages = with pkgs; [
       ghostty
       kdePackages.kate
+      telegram-desktop
+      discord
 
       (mpv.override {
 	scripts = with mpvScripts; [

@@ -4,8 +4,11 @@
     modules = [
       self.nixosModules.base
       self.nixosModules.desktop
-      self.nixosModules.v2rayn
+      self.nixosModules.power
+
       self.nixosModules.docker
+
+      self.nixosModules.v2rayn
 
       self.nixosModules.hostVostro
     ];

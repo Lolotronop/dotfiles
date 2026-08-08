@@ -7,6 +7,13 @@
     environment.systemPackages = with pkgs; [
       ghostty
       kdePackages.kate
+
+      (mpv.override {
+	scripts = with mpvScripts; [
+	  thumbfast
+	  uosc
+	];
+      })
     ];
 
     fonts.packages = with pkgs; [

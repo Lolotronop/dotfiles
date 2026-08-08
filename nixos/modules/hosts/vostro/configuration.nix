@@ -3,8 +3,9 @@
     system = "x86_64-linux";
     modules = [
       self.nixosModules.base
-      self.nixosModules.desktop
       self.nixosModules.power
+      self.nixosModules.desktop
+      self.nixosModules.hyprland
 
       self.nixosModules.docker
 
@@ -15,9 +16,10 @@
     ];
   };
 
-  flake.nixosModules.hostVostro = {pkgs, ...}: {
+  flake.nixosModules.hostVostro = {pkgs, lib, ...}: {
     environment.variables.NIXOS_HOST = "vostro";
     networking.hostName = "lolo-vostro";
+    services.displayManager.defaultSession = lib.mkForce "plasma";
 
     system.stateVersion = "26.05";
   };

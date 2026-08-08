@@ -1,4 +1,4 @@
-# this is a sligtly modified version of https://github.com/acomagu/fish-async-prompt
+# this is a slightly modified version of https://github.com/acomagu/fish-async-prompt
 # that does not wait for the full prompt on the first render, showing the loading indicator instantly
 
 # Don't run if the shell is not interactive

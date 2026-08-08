@@ -1,0 +1,17 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[ ❯](cyan)'
+error_symbol = '[ ❯](red)'
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+style = "green"
+
+[git_branch]
+symbol = ""
+format = "[$symbol$branch]($style) "

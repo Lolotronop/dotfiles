@@ -5,6 +5,7 @@
       vim
 
       fish
+      starship
       bat
 
       neovim

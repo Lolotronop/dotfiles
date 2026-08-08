@@ -1,7 +1,7 @@
 function fish_prompt_loading_indicator
     set -l normal (set_color --reset)
-    set -l status_color (set_color cyan)
-    set -l cwd_color (set_color green)
+    set -l status_color (set_color brcyan)
+    set -l cwd_color (set_color brgreen)
 
     set -q fish_prompt_pwd_dir_length
     or set -lx fish_prompt_pwd_dir_length 0

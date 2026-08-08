@@ -16,6 +16,11 @@ keybind = ctrl+b>right=goto_split:right
 keybind = ctrl+b>up=goto_split:top
 keybind = ctrl+b>down=goto_split:bottom
 
+keybind = ctrl+b>h=goto_split:left
+keybind = ctrl+b>l=goto_split:right
+keybind = ctrl+b>k=goto_split:top
+keybind = ctrl+b>j=goto_split:bottom
+
 # tmux: Ctrl+b o (next pane)
 keybind = ctrl+b>o=goto_split:next
 
@@ -25,6 +30,11 @@ keybind = ctrl+b>ctrl+left=resize_split:left,10
 keybind = ctrl+b>ctrl+right=resize_split:right,10
 keybind = ctrl+b>ctrl+up=resize_split:up,10
 keybind = ctrl+b>ctrl+down=resize_split:down,10
+
+keybind = ctrl+b>ctrl+h=resize_split:left,10
+keybind = ctrl+b>ctrl+l=resize_split:right,10
+keybind = ctrl+b>ctrl+k=resize_split:up,10
+keybind = ctrl+b>ctrl+j=resize_split:down,10
 
 # Close pane
 # tmux: Ctrl+b x

@@ -9,6 +9,7 @@
       self.nixosModules.docker
 
       self.nixosModules.v2rayn
+      self.nixosModules.zapret
 
       self.nixosModules.hostVostro
     ];

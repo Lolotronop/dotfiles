@@ -15,6 +15,7 @@ window-decoration = false
 window-height = 1000
 window-width = 1000
 
+resize-overlay = never
 gtk-titlebar = false
 window-show-tab-bar = always
 window-new-tab-position = end

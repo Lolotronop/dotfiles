@@ -16,8 +16,9 @@ window-width = 1000
 command = fish
 
 custom-shader = shaders/cursor_warp.glsl
+window-show-tab-bar = always
 config-file = tmux
 gtk-custom-css = tabheight.css
 window-new-tab-position = end
-gtk-tabs-location = bottom
+gtk-tabs-location = top
 gtk-wide-tabs = false

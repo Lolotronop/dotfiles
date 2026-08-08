@@ -1,11 +1,10 @@
 /* taken from https://github.com/ghostty-org/ghostty/discussions/5882#discussioncomment-12397240 */
 
 headerbar {
-    min-height: 10px;
+    min-height: 4px;
     padding: 0;
     margin: 0;
 
-    background-color: rgba(255,0,0,255);
 }
 
 revealer windowhandle {
@@ -13,12 +12,35 @@ revealer windowhandle {
     filter: none;
 }
 
-tabbar tabbox {
-    /* background-color: rgba(0,0,255,170); */
-    margin: -4px -10px;
+/* Shrink the space allocated for the whole libadwaita tab bar.
+   The tabbox rule below only clips the tab contents; this is the bit that
+   actually makes the bar take less vertical space. */
+tabbar {
+    margin: -3px 0;
     padding: 0;
-    min-height: 10px;
-    -gtk-icon-size: 14px;
+    min-height: 0;
+    background-color: var(--inactive-color);
+}
+
+tabbar revealer,
+tabbar windowhandle {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+tabbar tabbox {
+    /* background-color: #1d2021; */
+    margin: -10px -10px;
+    padding: 0;
+    min-height: 4px;
+    -gtk-icon-size: 12px;
+}
+
+:root {
+    --tab-border: 10px;
+    --active-color: #323232;
+    --inactive-color: #181818;
 }
 
 tabbar tabbox tab {
@@ -26,14 +48,28 @@ tabbar tabbox tab {
     padding: 0;
     border-radius: 0px;
     transition-duration: 0s;
+
+    /* The tabbox is pulled up/down with negative margins.  If the tab's
+       background fills the whole tab node, it becomes visible outside the
+       tiny bar.  Paint only the padding box and use transparent borders as
+       the part that is allowed to overflow. */
+    /* background-color: #1d2021; */
+    background-clip: padding-box;
+    border-top: var(--tab-border) solid transparent;
+    border-bottom: var(--tab-border) solid transparent;
+    box-shadow: none;
 }
 
 tabbar tabbox tab:selected {
-    background-color: transparent;
+    background-color: var(--active-color);
     margin: 0;
     padding: 0;
     border-radius: 0px;
     transition-duration: 0s;
+    background-clip: padding-box;
+    border-top: var(--tab-border) solid transparent;
+    border-bottom: var(--tab-border) solid transparent;
+    box-shadow: none;
 }
 
 tabbox tab button image {
@@ -44,7 +80,9 @@ tabbox tab button image {
 
 tabbar tabbox tab label {
     font-family: Iosevka Nerd Font;
-    font-size: 15px;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
 }
 
 tabbar tabbox tab:selected label {

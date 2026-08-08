@@ -1,3 +1,6 @@
+command = fish
+config-file = tmux
+
 font-family = IosevkaTerm Nerd Font
 font-size = 15
 
@@ -8,17 +11,15 @@ background-opacity = 0.8
 window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = true
-gtk-titlebar = false
 window-decoration = false
 window-height = 1000
 window-width = 1000
 
-command = fish
-
-custom-shader = shaders/cursor_warp.glsl
+gtk-titlebar = false
 window-show-tab-bar = always
-config-file = tmux
-gtk-custom-css = tabheight.css
 window-new-tab-position = end
 gtk-tabs-location = top
 gtk-wide-tabs = false
+gtk-custom-css = tabheight.css
+
+custom-shader = shaders/cursor_warp.glsl

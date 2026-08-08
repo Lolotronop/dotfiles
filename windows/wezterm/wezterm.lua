@@ -3,7 +3,6 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 config.color_scheme = "GruvboxDarkHard"
 config.font = wezterm.font("IosevkaTerm Nerd Font")
-config.max_fps = 170
 
 config.colors = {
 	tab_bar = {

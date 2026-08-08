@@ -7,7 +7,11 @@ function nix --wraps nix
         echo "Switching to $NIXOS_HOST"
         sudo nixos-rebuild switch --flake ~/.config/nixos#$NIXOS_HOST
     else if test $argv[1] = boot
+        echo "Booting $NIXOS_HOST"
         sudo nixos-rebuild boot --flake ~/.config/nixos#$NIXOS_HOST
+    else if test $argv[1] = test
+        echo "Testing $NIXOS_HOST"
+        sudo nixos-rebuild test --flake ~/.config/nixos#$NIXOS_HOST
     else if test $argv[1] = gc
         nix-env --delete-generations +3
         nix-collect-garbage

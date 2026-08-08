@@ -58,5 +58,8 @@
       SystemMaxUse=512M
       '';
     };
+
+
+    nixpkgs.config.allowUnfree = true;
   };
 }

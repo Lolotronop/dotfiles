@@ -62,3 +62,5 @@ link_item "fish" "~/.config/fish"
 link_item "lazygit" "~/.config/lazygit"
 link_item "tmux" "~/.config/tmux"
 link_item "starship/starship.toml" "~/.config/starship.toml"
+
+link_item "ghostty" "~/.config/ghostty"

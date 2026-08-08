@@ -1,13 +1,3 @@
-# this is very much based on https://github.com/acomagu/fish-async-prompt
-
-status is-interactive
-or exit
-
-set -g __prompt_tmp (mktemp -d)
-set -g __prompt_gen 0
-set -g __prompt_git ""
-
-
 function __prompt_git_info --argument-names dir
     git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>/dev/null
     or return
@@ -116,82 +106,45 @@ function __prompt_git_info --argument-names dir
     echo -n -s $git $normal
 end
 
+function __prompt_render --argument-names last_status git
+    set -l normal (set_color --reset)
+    set -l status_color (set_color brcyan)
+    set -l cwd_color (set_color green)
+    set -l prompt_status ""
 
-function __prompt_async
-    set -g __prompt_gen (math $__prompt_gen + 1)
+    set -q fish_prompt_pwd_dir_length
+    or set -lx fish_prompt_pwd_dir_length 0
 
-    set -l gen $__prompt_gen
-    set -l dir $PWD
-    set -l file "$__prompt_tmp/$gen"
-
-    begin
-        __prompt_git_info "$dir" >$file
-        kill -s SIGUSR1 $fish_pid 2>/dev/null
-    end &
-end
-
-
-function __prompt_repaint --on-signal SIGUSR1
-    set -l file "$__prompt_tmp/$__prompt_gen"
-
-    if test -f "$file"
-        set -g __prompt_git (string collect <"$file")
-        commandline -f repaint >/dev/null 2>/dev/null
+    set -l suffix ' ❯'
+    if functions -q fish_is_root_user; and fish_is_root_user
+        if set -q fish_color_cwd_root
+            set cwd_color (set_color $fish_color_cwd_root)
+        end
+        set suffix '#'
     end
+
+    if test $last_status -ne 0
+        set status_color (set_color $fish_color_error)
+        set prompt_status $status_color "[$last_status]" $normal
+    end
+
+    echo -s -n \n $cwd_color (prompt_pwd)
+    if test -n "$git"
+        echo -s -n ' ' $git
+    end
+    echo
+    echo -n -s $status_color $suffix ' ' $normal
 end
 
-
-function __prompt_on_pwd --on-variable PWD
-    # The old git info is no longer relevant.
-    set -g __prompt_git ""
-
-    __prompt_async
+# This is the synchronous first pass: it must not call git.
+function fish_prompt_loading_indicator
+    set -l last_status $status
+    __prompt_render $last_status ""
 end
 
-
-function __prompt_on_exec --on-event fish_postexec
-    __prompt_async
-end
-
-
-function __prompt_start --on-event fish_prompt
-    functions -e __prompt_start
-    __prompt_async
-end
-
+# fish-async-prompt runs this complete second pass in a background fish.
 function fish_prompt
-        set -l last_status $status
-        set -l normal (set_color --reset)
-        set -l status_color (set_color brcyan)
-        set -l cwd_color (set_color $fish_color_cwd)
-        set -l prompt_status ""
-
-        set -q fish_prompt_pwd_dir_length
-        or set -lx fish_prompt_pwd_dir_length 0
-
-        # Color the prompt differently when we're root
-        set -l suffix ' ❯'
-        if functions -q fish_is_root_user; and fish_is_root_user
-                if set -q fish_color_cwd_root
-                        set cwd_color (set_color $fish_color_cwd_root)
-                end
-                set suffix '#'
-        end
-
-        # Color the prompt in red on error
-        if test $last_status -ne 0
-                set status_color (set_color $fish_color_error)
-                set prompt_status $status_color "[" $last_status "]" $normal
-        end
-
-        echo -s -n \n $cwd_color (prompt_pwd)
-        if test -n "$__prompt_git"
-                echo -s -n ' ' $__prompt_git
-        end
-        echo
-        echo -n -s $status_color $suffix ' ' $normal
-end
-
-function __prompt_cleanup --on-event fish_exit
-    rm -rf "$__prompt_tmp"
+    set -l last_status $status
+    set -l git (__prompt_git_info "$PWD")
+    __prompt_render $last_status "$git"
 end

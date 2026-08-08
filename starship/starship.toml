@@ -10,7 +10,7 @@ error_symbol = '[ ❯](bright-red)'
 [directory]
 truncation_length = 0
 truncate_to_repo = false
-style = "bright-green"
+style = "bold bright-green"
 
 [git_branch]
 symbol = ""

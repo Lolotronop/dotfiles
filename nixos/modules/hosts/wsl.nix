@@ -34,7 +34,7 @@
 
       serviceConfig = {
         Type = "simple";
-        Restart = "unless-stopped";
+        Restart = "always";
         RestartSec = 1;
 
         ExecStart = "${pkgs.bash}/bin/bash -lc 'read -r _ _ WIN_IP _ < <(ip route | grep -m1 default); exec ${pkgs.socat}/bin/socat TCP-LISTEN:10808,fork,reuseaddr TCP:\"$WIN_IP\":10808'";

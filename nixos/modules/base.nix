@@ -14,6 +14,9 @@
       tree-sitter
       gcc
 
+      devenv
+      direnv
+
       lazygit
       delta
 
@@ -22,10 +25,20 @@
 
       pi-coding-agent
 
+      nodejs
+      bun
+      python3
+
+      ffmpeg
+      imagemagick
+      yt-dlp
+
       # TOOD: seriously consider if I need it
       # I have wezterm and maybe ghostty for this?
       tmux
     ];
+
+    environment.variables.DEVENV_SHELL_TYPE = "fish";
 
     programs.git = {
       enable = true;

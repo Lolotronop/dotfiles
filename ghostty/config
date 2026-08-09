@@ -10,7 +10,7 @@ background-opacity = 0.8
 
 window-padding-x = 0
 window-padding-y = 0
-window-padding-balance = true
+window-padding-balance = false
 window-decoration = false
 window-height = 1000
 window-width = 1000

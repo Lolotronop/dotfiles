@@ -201,6 +201,12 @@ $Links = @(
         Source      = "lazygit\config.yml"
         Destination = "~\AppData\Local\lazygit\config.yml"
     },
+
+    @{
+        Source      = "eq_apo"
+        Destination = "C:\Program Files\EqualizerAPO\config"
+    },
+
     @{
         Source      = "altsnap"
         Destination = "$ScoopLocation\persist\altsnap"

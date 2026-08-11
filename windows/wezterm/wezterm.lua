@@ -51,7 +51,7 @@ local function enable_tmux(window, pane)
 
 	config.enable_tab_bar = true
 	config.use_fancy_tab_bar = false
-	config.tab_bar_at_bottom = true
+	config.tab_bar_at_bottom = false
 	config.tab_max_width = 64
 
 	require("plugins.wez-tmux.plugin").apply_to_config(config, {

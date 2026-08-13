@@ -1,5 +1,5 @@
-{inputs, self, ...}: {
-  flake.nixosModules.hyprland = {pkgs,...}: {
+{ inputs, self, ... }: {
+  flake.nixosModules.hyprland = { pkgs, ... }: {
     programs.hyprland.enable = true;
 
     environment.systemPackages = with pkgs; [

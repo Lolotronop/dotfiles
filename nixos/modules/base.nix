@@ -1,5 +1,5 @@
-{inputs, self, ...}: {
-  flake.nixosModules.base = {pkgs,...}: {
+{ inputs, self, ... }: {
+  flake.nixosModules.base = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       git
       vim
@@ -13,6 +13,7 @@
       ripgrep
       tree-sitter
       gcc
+      nixd
 
       devenv
       direnv
@@ -22,8 +23,6 @@
 
       btop
       htop
-
-      pi-coding-agent
 
       nodejs
       bun
@@ -68,10 +67,9 @@
 
     services.journald = {
       extraConfig = ''
-      SystemMaxUse=512M
+        SystemMaxUse=512M
       '';
     };
-
 
     nixpkgs.config.allowUnfree = true;
   };

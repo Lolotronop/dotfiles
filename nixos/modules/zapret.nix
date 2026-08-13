@@ -1,5 +1,5 @@
-{inputs, ...}: {
-  flake.nixosModules.zapret = {...}: {
+{ inputs, ... }: {
+  flake.nixosModules.zapret = { ... }: {
     imports = [
       inputs.zapret-discord-youtube.nixosModules.withTestTools
     ];

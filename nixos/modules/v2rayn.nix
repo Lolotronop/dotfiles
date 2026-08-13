@@ -1,5 +1,5 @@
-{inputs, self, ...}: {
-  flake.nixosModules.v2rayn = {pkgs,...}: {
+{ inputs, self, ... }: {
+  flake.nixosModules.v2rayn = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       v2rayn
       sing-box

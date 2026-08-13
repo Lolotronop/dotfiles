@@ -1,5 +1,5 @@
-{inputs, self, ...}: {
-  flake.nixosModules.desktop = {pkgs,...}: {
+{ inputs, self, ... }: {
+  flake.nixosModules.desktop = { pkgs, ... }: {
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
 
@@ -11,10 +11,10 @@
       discord
 
       (mpv.override {
-	scripts = with mpvScripts; [
-	  thumbfast
-	  uosc
-	];
+        scripts = with mpvScripts; [
+          thumbfast
+          uosc
+        ];
       })
     ];
 
@@ -23,24 +23,23 @@
       nerd-fonts.iosevka-term
     ];
 
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
-# Open ports in the firewall.
-# networking.firewall.allowedTCPPorts = [ ... ];
-# networking.firewall.allowedUDPPorts = [ ... ];
-# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    # Open ports in the firewall.
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networking.networkmanager.enable = true;
 
     #services.xserver.enable = true; # don't need the X11 server I think
 
     services.xserver.xkb = {
-	    layout = "us,ru";
-	    variant = ",";
+      layout = "us,ru";
+      variant = ",";
     };
-# Enable touchpad support (enabled default in most desktopManager).
+    # Enable touchpad support (enabled default in most desktopManager).
     services.xserver.libinput.enable = true;
 
     services.printing.enable = true;
@@ -48,32 +47,35 @@
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
-	    enable = true;
-	    alsa.enable = true;
-	    alsa.support32Bit = true;
-	    pulse.enable = true;
-		#jack.enable = true;
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      #jack.enable = true;
     };
 
     users.users."lolotronop" = {
-	    isNormalUser = true;
-	    description = "lolotronop";
-	    extraGroups = [ "networkmanager" "wheel" ];
-	    packages = with pkgs; [];
+      isNormalUser = true;
+      description = "lolotronop";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      packages = with pkgs; [ ];
     };
 
     time.timeZone = "Asia/Krasnoyarsk";
     i18n.defaultLocale = "en_US.UTF-8";
     i18n.extraLocaleSettings = {
-	    LC_ADDRESS = "ru_RU.UTF-8";
-	    LC_IDENTIFICATION = "ru_RU.UTF-8";
-	    LC_MEASUREMENT = "ru_RU.UTF-8";
-	    LC_MONETARY = "ru_RU.UTF-8";
-	    LC_NAME = "ru_RU.UTF-8";
-	    LC_NUMERIC = "ru_RU.UTF-8";
-	    LC_PAPER = "ru_RU.UTF-8";
-	    LC_TELEPHONE = "ru_RU.UTF-8";
-	    LC_TIME = "ru_RU.UTF-8";
+      LC_ADDRESS = "ru_RU.UTF-8";
+      LC_IDENTIFICATION = "ru_RU.UTF-8";
+      LC_MEASUREMENT = "ru_RU.UTF-8";
+      LC_MONETARY = "ru_RU.UTF-8";
+      LC_NAME = "ru_RU.UTF-8";
+      LC_NUMERIC = "ru_RU.UTF-8";
+      LC_PAPER = "ru_RU.UTF-8";
+      LC_TELEPHONE = "ru_RU.UTF-8";
+      LC_TIME = "ru_RU.UTF-8";
     };
   };
 }

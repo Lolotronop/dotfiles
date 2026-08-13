@@ -1,5 +1,5 @@
-{inputs, self, ...}: {
-  flake.nixosModules.docker = {pkgs,...}: {
+{ inputs, self, ... }: {
+  flake.nixosModules.docker = { pkgs, ... }: {
     users.users.lolotronop.extraGroups = [ "docker" ];
 
     virtualisation.docker = {

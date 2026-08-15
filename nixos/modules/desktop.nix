@@ -9,6 +9,7 @@
       kdePackages.kate
       telegram-desktop
       discord
+      easyeffects
 
       (mpv.override {
         scripts = with mpvScripts; [

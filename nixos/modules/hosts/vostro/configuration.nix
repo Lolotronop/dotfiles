@@ -7,6 +7,7 @@
       self.nixosModules.power
       self.nixosModules.desktop
       self.nixosModules.hyprland
+      self.nixosModules.bluetooth
 
       self.nixosModules.docker
 

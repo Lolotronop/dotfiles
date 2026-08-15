@@ -12,6 +12,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.on("hyprland.start", function () 
   hl.exec_cmd("v2rayN")
   hl.exec_cmd("noctalia")
+  hl.exec_cmd("systemctl --user start hyprpolkitagent")
 end)
 
 
@@ -63,6 +64,16 @@ hl.animation({ leaf = "workspaces",    enabled = true, speed = 1.5, bezier = "ea
 hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1, bezier = "easeOutQuint", style = "slide" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1, bezier = "easeOutQuint", style = "slide" })
 hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,    bezier = "quick" })
+
+hl.window_rule({
+    match = { title = "^(Picture-in-Picture)$", class = "^(firefox)$" },
+    float = true,
+    pin = true,
+    suppress_event = "fullscreen fullscreenoutput maximize",
+    border_size = 0,
+    move = {"monitor_w - monitor_w * 0.1 - window_w / 2", "32"}, -- bar thicness
+    size = {"monitor_w * 0.2", "monitor_h * 0.2"}
+})
 
 -- Smart Gaps
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })

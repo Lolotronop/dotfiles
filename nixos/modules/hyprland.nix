@@ -7,6 +7,9 @@
       noctalia
       hyprpicker
       wl-clipboard
+      hyprpolkitagent
+      playerctl
+      brightnessctl
     ];
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";

@@ -13,6 +13,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("v2rayN")
   hl.exec_cmd("noctalia")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  hl.exec_cmd("easyeffects -w")
 end)
 
 
@@ -223,4 +224,3 @@ hl.window_rule({
 
 -- TODO: make this work with firefox excluded
 -- hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 1, mode = "live" })
-

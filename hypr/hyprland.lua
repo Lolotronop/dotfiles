@@ -95,7 +95,13 @@ hl.window_rule({
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({ dwindle = { preserve_split = true } })
-hl.config({ misc = { force_default_wallpaper = 0, disable_hyprland_logo   = true } })
+hl.config({
+    misc = {
+        force_default_wallpaper = 0,
+        disable_hyprland_logo = true,
+        middle_click_paste = false,
+    },
+})
 
 
 hl.config({

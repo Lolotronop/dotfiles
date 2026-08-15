@@ -23,6 +23,10 @@
     networking.hostName = "lolo-vostro";
     services.displayManager.defaultSession = lib.mkForce "plasma";
 
+    # fix for backlight wrapping around after 65470
+    # disables the hardware-privided curve for backlight
+    boot.kernelParams = [ "amdgpu.dcdebugmask=0x40000" ];
+
     system.stateVersion = "26.05";
   };
 }

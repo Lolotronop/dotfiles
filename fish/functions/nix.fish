@@ -14,7 +14,8 @@ function nix --wraps nix
         sudo nixos-rebuild test --flake ~/.config/nixos#$NIXOS_HOST
     else if test $argv[1] = gc
         nix-env --delete-generations +3
-        nix-collect-garbage
+        sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +3
+        sudo nix-collect-garbage
     else
         command nix $argv
     end

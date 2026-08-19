@@ -40,7 +40,12 @@
             efi /EFI/Microsoft/Boot/bootmgfw.efi
           '';
           extraInstallCommands = ''
-            echo 'auto-entries no' >> ${config.boot.loader.efi.efiSysMountPoint}/loader/loader.conf
+            loader_conf=${config.boot.loader.efi.efiSysMountPoint}/loader/loader.conf
+            sed -i \
+              -e '/^preferred /d' \
+              -e 's/^default .*/default windows-11.conf/' \
+              "$loader_conf"
+            echo 'auto-entries no' >> "$loader_conf"
           '';
         };
         efi = {

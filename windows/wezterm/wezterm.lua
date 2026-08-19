@@ -2,7 +2,8 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 config.color_scheme = "GruvboxDarkHard"
-config.font = wezterm.font("IosevkaTerm Nerd Font")
+config.font = wezterm.font("Ioskeley Mono Term SmCn")
+
 
 config.colors = {
 	tab_bar = {

@@ -1,5 +1,5 @@
 { inputs, self, ... }: {
-  flake.nixosModules.desktop = { pkgs, ... }: {
+  flake.nixosModules.desktop = { config, pkgs, ... }: {
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
 
@@ -26,9 +26,30 @@
       ioskeley-mono.condensed-term
     ];
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot = {
+      loader = {
+        systemd-boot = {
+          enable = true;
+
+          # systemd-boot's automatic Windows entry has no configurable sort
+          # key. Replace it with an equivalent keyed entry so it sorts before
+          # every NixOS generation (whose default sort key is "nixos").
+          extraEntries."windows-11.conf" = ''
+            title Windows 11
+            sort-key a_windows
+            efi /EFI/Microsoft/Boot/bootmgfw.efi
+          '';
+          extraInstallCommands = ''
+            echo 'auto-entries no' >> ${config.boot.loader.efi.efiSysMountPoint}/loader/loader.conf
+          '';
+        };
+        efi = {
+          canTouchEfiVariables = true;
+        };
+      };
+
+      kernelPackages = pkgs.linuxPackages_latest;
+    };
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];

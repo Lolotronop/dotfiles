@@ -22,6 +22,8 @@
     fonts.packages = with pkgs; [
       nerd-fonts.iosevka
       nerd-fonts.iosevka-term
+      ioskeley-mono.semiCondensed-term
+      ioskeley-mono.condensed-term
     ];
 
     boot.loader.systemd-boot.enable = true;

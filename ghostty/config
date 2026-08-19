@@ -1,11 +1,13 @@
 command = fish
 config-file = tmux
 
-font-family = IosevkaTerm Nerd Font
+# font-family = IosevkaTerm Nerd Font
+font-family = Ioskeley Mono Term
+font-style = Condensed
 font-size = 15
 
 theme = Gruvbox Dark Hard
-background = #090909
+background = #000000
 background-opacity = 0.8
 
 window-padding-x = 0

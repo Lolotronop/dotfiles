@@ -41,7 +41,7 @@
           '';
           extraInstallCommands = ''
             loader_conf=${config.boot.loader.efi.efiSysMountPoint}/loader/loader.conf
-            sed -i \
+            ${pkgs.gnused}/bin/sed -i \
               -e '/^preferred /d' \
               -e 's/^default .*/default windows-11.conf/' \
               "$loader_conf"

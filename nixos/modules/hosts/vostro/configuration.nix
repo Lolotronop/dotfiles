@@ -10,6 +10,7 @@
       self.nixosModules.bluetooth
 
       self.nixosModules.docker
+      self.nixosModules.syncthing
 
       self.nixosModules.v2rayn
       self.nixosModules.zapret

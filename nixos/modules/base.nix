@@ -62,6 +62,10 @@
         merge = {
           conflictStyle = "zdiff3";
         };
+
+        init = {
+          defaultBranch = "main";
+        };
       };
     };
 

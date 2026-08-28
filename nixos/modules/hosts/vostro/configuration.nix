@@ -19,10 +19,29 @@
     ];
   };
 
-  flake.nixosModules.hostVostro = { pkgs, lib, ... }: {
+  flake.nixosModules.hostVostro = { config, pkgs, lib, ... }: {
     environment.variables.NIXOS_HOST = "vostro";
     networking.hostName = "lolo-vostro";
     services.displayManager.defaultSession = lib.mkForce "plasma";
+
+    # systemd-boot's automatic Windows entry has no configurable sort key.
+    # Replace it with an equivalent keyed entry so it sorts before every NixOS
+    # generation (whose default sort key is "nixos").
+    boot.loader.systemd-boot = {
+      extraEntries."windows-11.conf" = ''
+        title Windows 11
+        sort-key a_windows
+        efi /EFI/Microsoft/Boot/bootmgfw.efi
+      '';
+      extraInstallCommands = ''
+        loader_conf=${config.boot.loader.efi.efiSysMountPoint}/loader/loader.conf
+        ${pkgs.gnused}/bin/sed -i \
+          -e '/^preferred /d' \
+          -e 's/^default .*/default windows-11.conf/' \
+          "$loader_conf"
+        echo 'auto-entries no' >> "$loader_conf"
+      '';
+    };
 
     # fix for backlight wrapping around after 65470
     # disables the hardware-privided curve for backlight

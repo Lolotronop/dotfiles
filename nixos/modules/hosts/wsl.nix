@@ -17,6 +17,7 @@
     { pkgs, lib, ... }:
     {
       environment.variables.NIXOS_HOST = "wsl";
+      networking.hostName = "lolo-wsl";
       wsl.enable = true;
       wsl.defaultUser = "lolotronop";
       security.sudo.wheelNeedsPassword = true;

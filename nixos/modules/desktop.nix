@@ -1,5 +1,5 @@
 { inputs, self, ... }: {
-  flake.nixosModules.desktop = { config, pkgs, ... }: {
+  flake.nixosModules.desktop = { pkgs, ... }: {
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
 
@@ -28,26 +28,7 @@
 
     boot = {
       loader = {
-        systemd-boot = {
-          enable = true;
-
-          # systemd-boot's automatic Windows entry has no configurable sort
-          # key. Replace it with an equivalent keyed entry so it sorts before
-          # every NixOS generation (whose default sort key is "nixos").
-          extraEntries."windows-11.conf" = ''
-            title Windows 11
-            sort-key a_windows
-            efi /EFI/Microsoft/Boot/bootmgfw.efi
-          '';
-          extraInstallCommands = ''
-            loader_conf=${config.boot.loader.efi.efiSysMountPoint}/loader/loader.conf
-            ${pkgs.gnused}/bin/sed -i \
-              -e '/^preferred /d' \
-              -e 's/^default .*/default windows-11.conf/' \
-              "$loader_conf"
-            echo 'auto-entries no' >> "$loader_conf"
-          '';
-        };
+        systemd-boot.enable = true;
         efi = {
           canTouchEfiVariables = true;
         };

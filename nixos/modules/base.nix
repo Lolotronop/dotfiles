@@ -7,6 +7,7 @@
       fish
       starship
       bat
+      jq
 
       neovim
       fd

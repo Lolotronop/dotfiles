@@ -1,0 +1,53 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps
+  ralt
+  lmet
+  q
+  1
+  2
+  3
+  4
+  5
+)
+
+(defalias
+  win (tap-hold-press
+        1 1
+        lmet
+        (multi lmet (layer-while-held win-layer))
+      )
+
+  w1 (multi lctl lmet lalt 1)
+  w2 (multi lctl lmet lalt 2)
+  w3 (multi lctl lmet lalt 3)
+  w4 (multi lctl lmet lalt 4)
+  w5 (multi lctl lmet lalt 5)
+)
+
+(deflayer base
+  lctl
+  f13
+  @win
+  q
+  1
+  2
+  3
+  4
+  5
+)
+
+(deflayer win-layer
+  _
+  _
+  _
+  A-f4
+  @w1
+  @w2
+  @w3
+  @w4
+  @w5
+)

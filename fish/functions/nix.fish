@@ -1,6 +1,14 @@
 function nix --wraps nix
     if test $argv[1] = develop; and test -z $argv[2]
         nix develop --command fish
+    else if test $argv[1] = dev; and test -z $argv[2]
+        set nixpkgs_ref (
+            nix flake metadata --json ~/.config/nixos |
+            jq -r '.locks.nodes.nixpkgs.locked |
+            "github:\(.owner)/\(.repo)/\(.rev)"'
+        )
+        echo "Using nixpkgs $nixpkgs_ref"
+        nix develop --override-input nixpkgs "$nixpkgs_ref" --command fish 
     else if test $argv[1] = update
         nix flake update --flake ~/.config/nixos
     else if test $argv[1] = switch

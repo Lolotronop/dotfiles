@@ -16,6 +16,11 @@
       gcc
       nixd
 
+      # webdev
+      live-server
+      typescript-go
+      vscode-langservers-extracted
+
       devenv
       direnv
 

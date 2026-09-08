@@ -15,6 +15,7 @@
       tree-sitter
       gcc
       nixd
+      watchexec
 
       # webdev
       live-server

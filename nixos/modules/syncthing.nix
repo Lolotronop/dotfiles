@@ -13,6 +13,7 @@
       settings = {
         devices = {
           "laptop-win".id = "YDKHRNG-E5GCHVD-DAU2SKS-FDTTIRU-GNT6SHR-FKD54IH-B5LEW5L-QFAZVQ3";
+          "lolo-spacewar".id = "IRVFK74-MP3BIE6-IHKW5TS-3XLGP23-YOLKXX7-NFGJVO3-USIMJAJ-TNE7HAM";
         };
 
         folders = {

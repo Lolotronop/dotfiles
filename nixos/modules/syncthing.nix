@@ -12,7 +12,7 @@
 
       settings = {
         devices = {
-          "laptop-win".id = "R2OHSGF-AX2SQUI-DATFIIH-D3E3S62-5KRBQQP-QBIER5G-4SYUMRB-5W5AEQK";
+          "laptop-win".id = "YDKHRNG-E5GCHVD-DAU2SKS-FDTTIRU-GNT6SHR-FKD54IH-B5LEW5L-QFAZVQ3";
         };
 
         folders = {

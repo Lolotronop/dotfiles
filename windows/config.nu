@@ -3,13 +3,13 @@ $env.config = {
 
     shell_integration: {
         # osc2 abbreviates the path if in the home_dir, sets the tab/window title, shows the running command in the tab/window title
-        # osc2: true
+        osc2: true
 
         # osc7 is a way to communicate the path to the terminal, this is helpful for spawning new tabs in the same directory
-        # osc7: true
+        osc7: true
 
         # osc8 is also implemented as the deprecated setting ls.show_clickable_links, it shows clickable links in ls output if your terminal supports it. show_clickable_links is deprecated in favor of osc8
-        # osc8: true
+        osc8: true
 
         # osc9_9 is from ConEmu and is starting to get wider support. It's similar to osc7 in that it communicates the path to the terminal
         osc9_9: false
@@ -30,10 +30,10 @@ $env.config = {
         # 633;E - NOT IMPLEMENTED - Explicitly set the command line with an optional nonce
         # 633;P;Cwd=<path> - Mark the current working directory and communicate it to the terminal
         # and also helps with the run recent menu in vscode
-        # osc633: true
+        osc633: true
 
         # reset_application_mode is escape \x1b[?1l and was added to help ssh work better
-        # reset_application_mode: true
+        reset_application_mode: true
     }
 }
 

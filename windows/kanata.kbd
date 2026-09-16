@@ -1,7 +1,9 @@
 (defsrc
 caps
+ralt
 )
 
 (deflayer default
-  @caps lctl
+  lctl
+  f13
 )

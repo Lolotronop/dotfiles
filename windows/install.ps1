@@ -228,6 +228,10 @@ $Links = @(
         Source      = "mpv\mpv.conf"
         Destination = "$ScoopLocation\persist\mpv\portable_config\mpv.conf"
     },
+    @{
+        Source      = "mpv\input.conf"
+        Destination = "$ScoopLocation\persist\mpv\portable_config\input.conf"
+    },
 
     @{
         Source      = "sublime-text\Packages"

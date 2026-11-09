@@ -1,9 +1,9 @@
 command = fish
 config-file = tmux
 
-# font-family = IosevkaTerm Nerd Font
-font-family = Ioskeley Mono Term
-font-style = Condensed
+font-family = IosevkaTerm Nerd Font
+#font-family = Ioskeley Mono Term
+# font-style = Condensed
 font-size = 15
 
 theme = Gruvbox Dark Hard
@@ -25,4 +25,4 @@ gtk-tabs-location = top
 gtk-wide-tabs = false
 gtk-custom-css = tabheight.css
 
-custom-shader = shaders/cursor_warp.glsl
+# custom-shader = shaders/cursor_warp.glsl

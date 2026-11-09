@@ -38,8 +38,15 @@ hl.config({
         blur = { enabled   = false },
     },
 
-    animations = { enabled = true},
+    animations = { enabled = false},
 })
+
+for i = 1, 5 do
+    hl.workspace_rule({
+        workspace = tostring(i),
+        persistent = true,
+    })
+end
 
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
 hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}    } })

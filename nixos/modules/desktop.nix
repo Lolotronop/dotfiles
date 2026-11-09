@@ -1,6 +1,6 @@
 { inputs, self, ... }: {
   flake.nixosModules.desktop = { pkgs, ... }: {
-    services.displayManager.sddm.enable = true;
+    services.displayManager.ly.enable = true;
     services.desktopManager.plasma6.enable = true;
 
     programs.firefox.enable = true;
@@ -8,8 +8,9 @@
       ghostty
       kdePackages.kate
       telegram-desktop
-      discord
+     # discord
       easyeffects
+      obsidian
 
       (mpv.override {
         scripts = with mpvScripts; [
@@ -22,8 +23,6 @@
     fonts.packages = with pkgs; [
       nerd-fonts.iosevka
       nerd-fonts.iosevka-term
-      ioskeley-mono.semiCondensed-term
-      ioskeley-mono.condensed-term
     ];
 
     boot = {

@@ -22,9 +22,6 @@
       typescript
       vscode-langservers-extracted
 
-      devenv
-      direnv
-
       lazygit
       delta
 
@@ -35,6 +32,9 @@
       bun
       python3
 
+      odin
+      ols
+
       ffmpeg
       imagemagick
       yt-dlp
@@ -42,6 +42,9 @@
       # TOOD: seriously consider if I need it
       # I have wezterm and maybe ghostty for this?
       tmux
+
+      # codex
+      pi-coding-agent
     ];
 
     environment.variables.DEVENV_SHELL_TYPE = "fish";

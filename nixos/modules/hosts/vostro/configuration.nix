@@ -12,7 +12,9 @@
       self.nixosModules.syncthing
 
       self.nixosModules.v2rayn
-      self.nixosModules.zapret
+      #self.nixosModules.zapret
+
+      self.nixosModules.steam
 
       self.nixosModules.hostVostro
     ];

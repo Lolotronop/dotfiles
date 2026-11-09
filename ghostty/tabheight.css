@@ -15,7 +15,8 @@ revealer windowhandle {
    The tabbox rule below only clips the tab contents; this is the bit that
    actually makes the bar take less vertical space. */
 tabbar {
-    margin: -5px 0;
+    margin: -9px 0;
+    transform: translateY(-9px);
     padding: 0;
     min-height: 0;
     background-color: var(--inactive-color);
@@ -30,14 +31,14 @@ tabbar windowhandle {
 
 tabbar tabbox {
     /* background-color: #1d2021; */
-    margin: -10px -10px;
+    margin: 0px;
     padding: 0;
     min-height: 4px;
     -gtk-icon-size: 12px;
 }
 
 :root {
-    --tab-border: 10px;
+    --tab-border: 0px;
     --active-color: #323232;
     --inactive-color: #181818;
 }
@@ -81,7 +82,7 @@ tabbar tabbox tab label {
     font-family: Iosevka Nerd Font;
     font-size: 16px;
     padding: 0;
-    transform: translateY(3px);
+    transform: translateY(9px);
 }
 
 tabbar tabbox tab:selected label {

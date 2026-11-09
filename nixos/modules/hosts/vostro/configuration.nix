@@ -23,7 +23,6 @@
   flake.nixosModules.hostVostro = { config, pkgs, lib, ... }: {
     environment.variables.NIXOS_HOST = "vostro";
     networking.hostName = "lolo-vostro";
-    services.displayManager.defaultSession = lib.mkForce "plasma";
 
     # systemd-boot's automatic Windows entry has no configurable sort key.
     # Replace it with an equivalent keyed entry so it sorts before every NixOS

@@ -1,9 +1,14 @@
 { inputs, self, ... }: {
   flake.nixosModules.desktop = { pkgs, ... }: {
     services.displayManager.ly.enable = true;
-    services.desktopManager.plasma6.enable = true;
 
-    programs.firefox.enable = true;
+    programs.firefox = {
+      enable = true;
+      preferences = {
+        "ui.systemUsesDarkTheme" = 1;
+        "layout.css.prefers-color-scheme.content-override" = 0;
+      };
+    };
     environment.systemPackages = with pkgs; [
       ghostty
       kdePackages.kate
@@ -11,6 +16,7 @@
      # discord
       easyeffects
       obsidian
+      pcmanfm
 
       (mpv.override {
         scripts = with mpvScripts; [
@@ -49,7 +55,7 @@
       variant = ",";
     };
     # Enable touchpad support (enabled default in most desktopManager).
-    services.xserver.libinput.enable = true;
+    services.libinput.enable = true;
 
     services.printing.enable = true;
 

@@ -3,7 +3,6 @@
     system = "x86_64-linux";
     modules = [
       self.nixosModules.base
-      self.nixosModules.pi
       self.nixosModules.power
       self.nixosModules.desktop
       self.nixosModules.hyprland

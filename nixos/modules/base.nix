@@ -19,7 +19,7 @@
 
       # webdev
       live-server
-      typescript-go
+      typescript
       vscode-langservers-extracted
 
       devenv
@@ -77,9 +77,7 @@
     };
 
     services.journald = {
-      extraConfig = ''
-        SystemMaxUse=512M
-      '';
+      settings.Journal.SystemMaxUse = "512M";
     };
 
     nixpkgs.config.allowUnfree = true;

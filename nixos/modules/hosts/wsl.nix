@@ -5,7 +5,6 @@
       inputs.nixos-wsl.nixosModules.default
 
       self.nixosModules.base
-      self.nixosModules.pi
       self.nixosModules.docker
       self.nixosModules.syncthing
 

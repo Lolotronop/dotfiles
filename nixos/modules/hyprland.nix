@@ -1,6 +1,7 @@
 { inputs, self, ... }: {
   flake.nixosModules.hyprland = { pkgs, ... }: {
     programs.hyprland.enable = true;
+    services.upower.enable = true; # for noctalia power display?
 
     # Set a consistent dark GTK preference and expose it through the settings portal.
     programs.dconf.enable = true;

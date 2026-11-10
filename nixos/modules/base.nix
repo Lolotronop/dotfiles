@@ -34,6 +34,7 @@
 
       odin
       ols
+      glfw
 
       ffmpeg
       imagemagick

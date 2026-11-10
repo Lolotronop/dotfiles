@@ -9,6 +9,7 @@
         "layout.css.prefers-color-scheme.content-override" = 0;
       };
     };
+
     environment.systemPackages = with pkgs; [
       ghostty
       kdePackages.kate
@@ -16,7 +17,9 @@
      # discord
       easyeffects
       obsidian
-      pcmanfm
+      cosmic-files
+      onlyoffice-desktopeditors
+      libreoffice
 
       (mpv.override {
         scripts = with mpvScripts; [

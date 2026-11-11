@@ -15,6 +15,7 @@
       #self.nixosModules.zapret
 
       self.nixosModules.steam
+      self.nixosModules.raddebugger
 
       self.nixosModules.hostVostro
     ];

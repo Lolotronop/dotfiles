@@ -24,7 +24,7 @@ hl.config({
         gaps_workspaces = 0,
         border_size = 1,
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            active_border   = "rgba(b8bb26aa)",
             inactive_border = "rgba(595959aa)",
         },
         layout = "dwindle",
@@ -124,6 +124,7 @@ hl.config({
 
         touchpad = {
             natural_scroll = true,
+            scroll_factor = 0.4,
         },
     },
 })

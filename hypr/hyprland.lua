@@ -118,6 +118,10 @@ hl.config({
         kb_options = "ctrl:nocaps,grp:win_space_toggle",
         kb_rules   = "",
 
+        -- Windows 11 defaults: 500 ms delay, ~30 repeats per second.
+        repeat_delay = 500,
+        repeat_rate  = 30,
+
         follow_mouse = 0,
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.

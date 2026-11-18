@@ -3,6 +3,7 @@
     environment.systemPackages = with pkgs; [
       git
       vim
+      unzip
 
       fish
       starship
@@ -35,6 +36,7 @@
       odin
       ols
       glfw
+      glfw2
 
       ffmpeg
       imagemagick

@@ -37,6 +37,7 @@
       ols
       glfw
       glfw2
+      raylib
 
       ffmpeg
       imagemagick

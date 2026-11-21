@@ -106,6 +106,7 @@ hl.config({
         force_default_wallpaper = 0,
         disable_hyprland_logo = true,
         middle_click_paste = false,
+        enable_anr_dialog = false, -- Don't show "not responding" dialogs while debugging.
     },
 })
 
